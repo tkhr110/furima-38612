@@ -26,14 +26,22 @@
 | user_id     |reference| null :false |foreign_key
 | order_id    |reference| null :false |foreign_key
 
-## ordersテーブル
+## adressesテーブル
 | Column      | Type    | Options     |key
 | ---------   | ------- | ----------- |
 | p_code      | string  | null: false |
 | prefecture  | string  | null :false |
 | municipality| string  | null :false |
-| adress      | string  | null :false |
+| detail      | string  | null :false |
 | building    | text    |             |
 | phone_number| string  | null :false |
-| item_id     |reference| null :false |foreign_key
 | user_id     |reference| null :false |foreign_key
+| order_id    |reference| null :false |foreign_key
+
+## ordersテーブル
+| Column     |Type     |Options     |key
+| -----------|---------|------------|
+| order_date | date    |null :false |
+| item_id    | integer |null :false |foreign_key
+| adress_id  | integer |null :false |foreign_key
+| user_id    | intefer |null :false |foreign_key
