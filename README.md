@@ -4,8 +4,8 @@
 ## usersテーブル
 | Column             |  Type   | Option       |key
 | ------------------ | ------- | ------------ |
-| nickname           | string  | null :false  |
-| email              | string  | null :false  |UNI
+| nickname           | string  | null :false  |UNI
+| email              | string  | null :false  |
 | encrypted_password | string  | null :false  |
 | first_name         | string  | null :false  |
 | first_name_kana    | string  | null :false  |
@@ -14,34 +14,32 @@
 | date_of_birth      | date    | null :false  |
 
 ## itemsテーブル
-| Column      | Type    | Options     |key
-| ---------   | ------- | ----------- |
-| item_name   | string  | null: false |
-| category_id | integer | null: false,
-| condition_id| integer | null :false |
-| d_fee_id    | integer | null :false |
-| area_id     | integer | null :false |
-| d_days_id   | integer | null :false |
-| price       | integer | null :false |
-| user_id     |reference| null :false |foreign_key
-| order_id    |reference| null :false |foreign_key
+| Column      | Type     | Options     |
+| ---------   | -------  | ----------- |
+| item_name   | string   | null :false |
+| category_id | integer  | null :false |
+| condition_id| integer  | null :false |
+| d_fee_id    | integer  | null :false |
+| area_id     | integer  | null :false |
+| d_days_id   | integer  | null :false |
+| price       | integer  | null :false |
+| user        |references| null :false, foreign_key :true
+| order       |references| null :false, foreign_key :true
 
 ## adressesテーブル
-| Column      | Type    | Options     |key
-| ---------   | ------- | ----------- |
-| p_code      | string  | null: false |
-| prefecture  | string  | null :false |
-| municipality| string  | null :false |
-| detail      | string  | null :false |
-| building    | text    |             |
-| phone_number| string  | null :false |
-| user_id     |reference| null :false |foreign_key
-| order_id    |reference| null :false |foreign_key
+| Column      | Type     | Options     |
+| ---------   | -------  | ----------- |
+| post_code   | integer  | null :false |
+| area_id     | integer  | null :false |
+| municipality| string   | null :false |
+| detail      | string   | null :false |
+| building    | text     |             |
+| phone_number| string   | null :false |
+| user        |references| null :false, foreign_key :true
+| order       |references| null :false, foreign_key :true(belongs_to)
 
 ## ordersテーブル
-| Column     |Type     |Options     |key
-| -----------|---------|------------|
-| order_date | date    |null :false |
-| item_id    | integer |null :false |foreign_key
-| adress_id  | integer |null :false |foreign_key
-| user_id    | intefer |null :false |foreign_key
+| Column     |Type       |Options     |
+| -----------|---------  |------------|
+| item       | references|null :false, foreign_key :true
+| user       | references|null :false, foreign_key :true(has_one)
