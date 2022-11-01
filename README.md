@@ -20,6 +20,7 @@
 | Column      | Type     | Options     |
 | ---------   | -------  | ----------- |
 | item_name   | string   | null: false |
+| explanation | string   | null: false |
 | category_id | integer  | null: false |
 | condition_id| integer  | null: false |
 | d_fee_id    | integer  | null: false |
@@ -27,12 +28,11 @@
 | d_days_id   | integer  | null: false |
 | price       | integer  | null: false |
 | user        |references| null: false, foreign_key: true
-| order       |references| null: false, foreign_key: true
 ### Association
 * belongs_to : user
-* belongs_to : order
+* has_one : order
 
-## adressesテーブル
+## addressesテーブル
 | Column      | Type     | Options     |
 | ---------   | -------  | ----------- |
 | post_code   | string   | null: false |
@@ -41,6 +41,7 @@
 | detail      | string   | null: false |
 | building    | string   |             |
 | phone_number| string   | null: false |
+| order       |references| null: false, foreign_key: true
 ### Association
 * belongs_to : order
 
@@ -53,4 +54,4 @@
 ### Association
 * belongs_to : user
 * belongs_to : item
-* has_one : adress
+* has_one : address
