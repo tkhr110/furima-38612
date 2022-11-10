@@ -15,7 +15,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it '販売価格が￥9,999,999なら出品できる' do
-        @item.price = 9999999
+        @item.price = 9_999_999
         expect(@item).to be_valid
       end
       it '販売価格が半角数字なら出品できる' do
