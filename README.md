@@ -23,9 +23,9 @@
 | explanation | text     | null: false |
 | category_id | integer  | null: false |
 | condition_id| integer  | null: false |
-| d_fee_id    | integer  | null: false |
+| dfee_id    | integer  | null: false |
 | area_id     | integer  | null: false |
-| d_days_id   | integer  | null: false |
+| dday_id   | integer  | null: false |
 | price       | integer  | null: false |
 | user        |references| null: false, foreign_key: true
 ### Association
